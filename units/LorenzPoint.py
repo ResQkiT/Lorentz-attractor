@@ -2,13 +2,13 @@ import math
 
 import pygame as pg
 
-from color.colors import *
+from colors import *
 
 pg.init()
 
-class Point:
+class LorenzPoint:
 
-    def __init__(self, screen,loader, x, y, z , radius = 1):
+    def __init__(self, screen,loader, x, y, z , radius = 0):
         self.screen = screen
         self.loader = loader
 
@@ -42,7 +42,7 @@ class Point:
 
 
     def getNext(self, deltaTime):
-        return Point(self.screen,
+        return LorenzPoint(self.screen,
                      self.loader,
                     self.x + self.getDeltaX() * deltaTime,
                     self.y + self.getDeltaY() * deltaTime,
