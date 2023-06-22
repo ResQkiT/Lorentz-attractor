@@ -1,6 +1,5 @@
 import pygame as pg
 import sys
-import PIL
 
 from color.Loader import Loader
 from color.units.Point import Point
@@ -8,14 +7,20 @@ from color.units.Point import Point
 pg.init()
 
 
-screen = pg.display.set_mode((1000, 1000))
+"""constants"""
 fps = 1000
 time = 0
+screen = pg.display.set_mode((1000, 1000))
 clock = pg.time.Clock()
 loader = Loader("units/rainbow_r.jpg")
 
+
+"""Dinamic"""
 points = []
 start_point = Point(screen, loader,10, 10, 10)
+
+
+"""main"""
 points.append(start_point)
 while True:
     time += 1 / fps
