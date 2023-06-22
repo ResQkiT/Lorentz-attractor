@@ -4,7 +4,7 @@ import sys
 from Loader import Loader
 from units.LorenzPoint import LorenzPoint
 from units.RosselPoint import RosselPoint
-from color.colors import *
+from colors import *
 pg.init()
 
 """constants"""

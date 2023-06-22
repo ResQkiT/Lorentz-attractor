@@ -2,7 +2,6 @@ import math
 
 import pygame as pg
 
-from color.colors import *
 
 pg.init()
 
