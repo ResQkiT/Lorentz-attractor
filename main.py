@@ -7,7 +7,6 @@ from units.RosselPoint import RosselPoint
 
 pg.init()
 
-
 """constants"""
 fps = 100000
 time = 0
@@ -29,7 +28,6 @@ while True:
     if len(points) <= 1000000:
         points[len(points) - 1].draw()
         np = points[len(points) - 1].getNext(1/30 )
-        #print(f"new point x={np.x}, y={np.y}, z={np.z}")
         points.append(np)
     for event in pg.event.get():
         if event.type == pg.QUIT:
