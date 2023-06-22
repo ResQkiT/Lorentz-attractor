@@ -7,5 +7,6 @@ class Loader:
     def getColor(self, c):
         c = c % self.image.size[0]
         pixelData = self.image.load()
-        return pixelData[c,0][:-1:]
-
+        if len(pixelData[c,0]) > 3:
+            return pixelData[c,0][:-1:]
+        return pixelData[c, 0]

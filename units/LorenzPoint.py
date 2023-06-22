@@ -2,7 +2,7 @@ import math
 
 import pygame as pg
 
-from colors import *
+from color.colors import *
 
 pg.init()
 
@@ -22,7 +22,7 @@ class LorenzPoint:
         self.r = 28
 
         self.k = 15
-        self.color = loader.getColor(int(z) * self.k * 2)
+        self.color = loader.getColor(int(z) * self.k * 5)
 
 
     def getDeltaX(self):

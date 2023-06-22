@@ -2,7 +2,7 @@ import math
 
 import pygame as pg
 
-from colors import *
+from color.colors import *
 
 pg.init()
 
@@ -21,7 +21,7 @@ class RosselPoint:
         self.c = 14
 
         self.k = 15
-        self.color = loader.getColor(int(z) * self.k )
+        self.color = loader.getColor(int(z) * self.k + 500)
 
     def getDeltaX(self):
         return -self.y - self.z
