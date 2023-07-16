@@ -10,7 +10,7 @@ from colors import *
 pg.init()
 
 """constants"""
-fps = 1000000
+fps = 100000
 time = 0
 screen = pg.display.set_mode((1000, 1000))
 screen.fill(BLACK)
@@ -33,13 +33,14 @@ while True:
         np = points[len(points) - 1].getNext(1/60 )
         points.append(np)
         np.draw()
+        #points.pop(0)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
             sys.exit()
         if event.type == pg.MOUSEBUTTONDOWN:
             print("Скриншот")
-            pg.image.save(screen, str(datetime.now().time()).replace(":", "_").replace(".", "_")+"__" + str(hash(np)) + '.png')
+            pg.image.save(screen,"screenshots//" + str(datetime.now().time()).replace(":", "_").replace(".", "_")+"__" + str(hash(np)) + '.png')
 
     pg.display.flip()
     clock.tick(fps)
