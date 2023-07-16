@@ -2,10 +2,6 @@ import math
 
 import pygame as pg
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f426dff9e844b599c4d15ab7e67695a6798f5f5
 pg.init()
 
 class RosselPoint:
