@@ -8,12 +8,12 @@ from colors import *
 pg.init()
 
 """constants"""
-fps = 3000
+fps = 240
 time = 0
 screen = pg.display.set_mode((1000, 1000))
 screen.fill(BLACK)
 clock = pg.time.Clock()
-loader = Loader("units/pattetns/bluegreen.jpg")
+loader = Loader("units/pattetns/purpleorange.jpg")
 
 
 """Dinamic"""
@@ -28,7 +28,7 @@ while True:
 
     if len(points) <= 1000000:
         points[len(points) - 1].draw()
-        np = points[len(points) - 1].getNext(1/60 )
+        np = points[len(points) - 1].getNext(1/fps )
         points.append(np)
     for event in pg.event.get():
         if event.type == pg.QUIT:
