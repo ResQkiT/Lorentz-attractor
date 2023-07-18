@@ -20,7 +20,7 @@ Loader.init("units/pattetns/rainbow_r.jpg")
 
 """Dinamic"""
 
-start_point = Point(1,1, 1, LorenzPoint(screen))
+start_point = Point(1,1, 1, LorenzPoint(screen), True)
 pointsCount = 1
 
 """main"""
@@ -29,8 +29,14 @@ while True:
     time += 1 / fps
 
     if pointsCount <= 1000000:
-        start_point.draw()
+
         np = start_point.getNext(1/fps)
+        print(np.isDrawAble())
+        if np.isDrawAble():
+            np.draw()
+            print(" рисую")
+        else:
+            print("не рисую")
         start_point = np
         pointsCount += 1
     for event in pg.event.get():
