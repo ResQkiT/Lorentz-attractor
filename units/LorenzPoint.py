@@ -1,48 +1,37 @@
-import math
-
 import pygame as pg
 
+from units.Point import Point
+from Loader import Loader
 
 pg.init()
 
+
 class LorenzPoint:
-
-    def __init__(self, screen,loader, x, y, z , radius = 0):
+    def __init__(self, screen, radius=0):
         self.screen = screen
-        self.loader = loader
-
-        self.x = x
-        self.y = y
-        self.z = z
         self.radius = radius
 
-        self.b = 8/3
+        self.b = 8 / 3
         self.s = 10
         self.r = 28
 
         self.k = 15
-        self.color = loader.getColor(int(z) * self.k * 2)
+        # self.color = loader.getColor(int(z) * self.k * 2)
 
+    def getDeltaX(self, x, y, z):
+        return -self.s * x + self.s * y
 
-    def getDeltaX(self):
-        return -self.s * self.x + self.s * self.y
+    def getDeltaY(self, x, y, z):
+        return -x * z + self.r * x - y
 
+    def getDeltaZ(self, x, y, z):
+        return x * y - self.b * z
 
-    def getDeltaY(self):
-        return -self.x * self.z + self.r * self.x - self.y
+    def draw(self, x, y, z):
+        color = Loader.getColor(z)
+        pg.draw.circle(self.screen, color, (int(x * self.k + 500), int(y * self.k + 500)), self.radius)
 
-
-    def getDeltaZ(self):
-        return self.x * self.y - self.b * self.z
-
-
-    def draw(self):
-        pg.draw.circle(self.screen, self.color, (int(self.x *self.k+ 500) ,int( self.y * self.k+ 500)), self.radius )
-
-
-    def getNext(self, deltaTime):
-        return LorenzPoint(self.screen,
-                     self.loader,
-                    self.x + self.getDeltaX() * deltaTime,
-                    self.y + self.getDeltaY() * deltaTime,
-                    self.z + self.getDeltaZ() * deltaTime)
+    def getNext(self, x, y, z, deltaTime):
+        return Point(x + self.getDeltaX() * deltaTime,
+                     y + self.getDeltaY() * deltaTime,
+                     z + self.getDeltaZ() * deltaTime)
