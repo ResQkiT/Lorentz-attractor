@@ -16,8 +16,6 @@ class LorenzPoint:
         self.r = 28
 
         self.k = 15
-        # self.color = loader.getColor(int(z) * self.k * 2)
-
     def getDeltaX(self, x, y, z):
         return -self.s * x + self.s * y
 
@@ -35,14 +33,12 @@ class LorenzPoint:
         dx = self.getDeltaX(x, y, z)
         dy = self.getDeltaY(x, y, z)
         dz = self.getDeltaZ(x, y, z)
-        drawAble = True
-        print(dx, dy,dz)
-        print(abs(dx) * deltaTime *self.k)
-        if abs(dx) * deltaTime *self.k < .05 or abs(dy)* deltaTime *self.k < .05 or abs(dz)* deltaTime *self.k < .05:
-            drawAble = False
-            print("no")
+        a = [dx, dy, dz]
+
+        if any(list(map(lambda x: abs(x) < 15, a))):
+            dx, dy, dz = list(map(lambda x: x * 4, a))
+
         return Point(x + dx * deltaTime,
                      y + dy * deltaTime,
                      z + dz * deltaTime,
-                     self,
-                     drawAble)
+                     self)

@@ -1,15 +1,12 @@
 from Loader import Loader
 
 class Point:
-    def __init__(self, x, y, z, lightWeight, drawable):
+    def __init__(self, x, y, z, lightWeight):
         self.x = x
         self.y = y
         self.z = z
-        self.drawable = drawable
-        self.lightWeight = lightWeight
 
-    def isDrawAble(self):
-        return self.drawable
+        self.lightWeight = lightWeight
 
     def getNext(self, deltaTime):
         return self.lightWeight.getNext(self.x,
