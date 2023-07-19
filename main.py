@@ -5,6 +5,7 @@ from datetime import datetime
 from Loader import Loader
 from units.LorenzPoint import LorenzPoint
 from units.Point import Point
+from units.PolynomialAttractorPoint import PolynomialAttractorPoint
 from units.RosselPoint import RosselPoint
 from units.NAttractorPoint import NAttractorPoint
 from colors import *
@@ -16,11 +17,11 @@ time = 0
 screen = pg.display.set_mode((1000, 1000))
 screen.fill(WHITE)
 clock = pg.time.Clock()
-Loader.init("units/pattetns/purpleorange.jpg")
+Loader.init("units/pattetns/bluegreen.jpg")
 
 """Dinamic"""
 
-start_point = Point(1,1, 1, RosselPoint(screen))
+start_point = Point(0,0, 0, PolynomialAttractorPoint(screen, "LUFBBFISGJYS"))
 pointsCount = 1
 
 """main"""

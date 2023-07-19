@@ -5,7 +5,6 @@ from Loader import Loader
 
 pg.init()
 
-
 class LorenzPoint:
     def __init__(self, screen, radius=0):
         self.screen = screen
