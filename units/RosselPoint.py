@@ -28,7 +28,7 @@ class RosselPoint:
         return self.b + z * (x - self.c)
 
     def draw(self, x, y, z):
-        color = Loader.getColor(int(z) * self.k * 2)
+        color = Loader.getColor(int(z) * self.k )
         pg.draw.circle(self.screen, color, (int(x * self.k + 500), int(y * self.k + 500)), self.radius)
 
     def getNext(self,x,y,z, deltaTime):

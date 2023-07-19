@@ -14,13 +14,13 @@ pg.init()
 fps = 5000
 time = 0
 screen = pg.display.set_mode((1000, 1000))
-screen.fill(BLACK)
+screen.fill(WHITE)
 clock = pg.time.Clock()
-Loader.init("units/pattetns/rainbow_r.jpg")
+Loader.init("units/pattetns/purpleorange.jpg")
 
 """Dinamic"""
 
-start_point = Point(1,1, 1, LorenzPoint(screen))
+start_point = Point(1,1, 1, RosselPoint(screen))
 pointsCount = 1
 
 """main"""
@@ -28,7 +28,7 @@ pointsCount = 1
 while True:
     time += 1 / fps
 
-    if pointsCount <= 1000000:
+    if pointsCount <= 100000000:
 
         np = start_point.getNext(1/fps)
         np.draw()
